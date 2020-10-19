@@ -14,8 +14,8 @@
       <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle>Manage Recipe </button>
       <div class="dropdown-menu" ngbDropdownMenu>
         <button ngbDropdownItem (click) = "onAdd()"> To shopping list</button>
-        <button ngbDropdownItem [routerLink]="['/recipes', recipe.id, 'edit']"> Edit recipe</button>
-        <button ngbDropdownItem> Delete Recipe</button>
+        <button ngbDropdownItem (click) = "edit()"> Edit recipe</button>
+        <button ngbDropdownItem (click) = "onDelete()"> Delete Recipe</button>
       </div>
     </div>
   </div>

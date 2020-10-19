@@ -14,7 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipeService } from './_services/recipe.service';
 import { ShoppingListService } from './_services/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
@@ -36,7 +36,8 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
       BrowserModule,
       NgbModule,
       FormsModule,
-      AppRoutingModule
+      AppRoutingModule,
+      ReactiveFormsModule
    ],
    providers: [
       RecipeService,
