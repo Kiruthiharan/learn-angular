@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img src={{recipe.imagePath}} alt="" class="img-responsive" style="max-height: 400px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{recipe.name}}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle>Manage Recipe </button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button ngbDropdownItem (click) = "onAdd()"> To shopping list</button>
+        <button ngbDropdownItem [routerLink]="['/recipes', recipe.id, 'edit']"> Edit recipe</button>
+        <button ngbDropdownItem> Delete Recipe</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{recipe.description}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}}({{ingredient.amount}})</li>
+    </ul>
+  </div>
+</div>
