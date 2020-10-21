@@ -12,13 +12,16 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="'/shopping-list'" >Shoping List</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="'/auth'">Authenticate</a>
+      </li>
     </ul>
     <ul class="nav navbar-nav ">
       <div ngbDropdown  class="d-inline-block container" >
         <button class="btn btn-outline-primary" ngbDropdownToggle>Manage</button>
         <div ngbDropdownMenu >
-          <button ngbDropdownItem>Action - 1</button>
-          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem (click)="onSaveData()">Save data</button>
+          <button ngbDropdownItem (click)="onFetchData()">Fetch data</button>
         </div>
       </div>
     </ul>
