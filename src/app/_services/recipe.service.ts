@@ -9,25 +9,25 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
-  private recipes: Recipe[] = [
-    new Recipe( 'Chicken Wrap',
-    'Chicken and other delights wrapped together',
-    'https://tastesbetterfromscratch.com/wp-content/uploads/2020/03/Buffalo-Chicken-Wrap-3-500x500.jpg',
-    [
-      new Ingredient('Chicken' , 250),
-      new Ingredient('Wrap', 1)
-    ]),
-    new Recipe( 'Pizza',
-    'Savory italian dish',
-    'https://static.toiimg.com/photo/53110049.cms',
-    [
-      new Ingredient('Pizza Base' , 1),
-      new Ingredient('Cheese', 100),
-      new Ingredient('Toppings', 3)
-    ]),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe( 'Chicken Wrap',
+  //   'Chicken and other delights wrapped together',
+  //   'https://tastesbetterfromscratch.com/wp-content/uploads/2020/03/Buffalo-Chicken-Wrap-3-500x500.jpg',
+  //   [
+  //     new Ingredient('Chicken' , 250),
+  //     new Ingredient('Wrap', 1)
+  //   ]),
+  //   new Recipe( 'Pizza',
+  //   'Savory italian dish',
+  //   'https://static.toiimg.com/photo/53110049.cms',
+  //   [
+  //     new Ingredient('Pizza Base' , 1),
+  //     new Ingredient('Cheese', 100),
+  //     new Ingredient('Toppings', 3)
+  //   ]),
+  // ];
 
-  // private recipes: Recipe[] =[];
+  private recipes: Recipe[] =[];
 
   constructor (private shoppingListService: ShoppingListService) {}
 
