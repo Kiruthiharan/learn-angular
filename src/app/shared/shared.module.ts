@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertComponent } from './alert/alert.component';
 import { DropdownDirective } from './dropdown.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
@@ -11,9 +12,11 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
         DropdownDirective,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        NgbModule
     ],
     exports: [
+        NgbModule,
         AlertComponent,
         LoadingSpinnerComponent,
         AlertComponent,
