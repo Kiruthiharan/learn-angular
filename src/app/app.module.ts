@@ -14,14 +14,18 @@ import * as fromApp from './store/app.reducer'
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from 'src/environments/environment';
+import { AnimationsComponent } from './animations/animations.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
    declarations: [
       AppComponent,
       HeaderComponent,
+      AnimationsComponent
    ],
    imports: [
-      BrowserModule,
+      BrowserModule.withServerTransition({ appId: 'serverApp' }),
+      BrowserAnimationsModule,
       FormsModule,
       AppRoutingModule,
       HttpClientModule,
