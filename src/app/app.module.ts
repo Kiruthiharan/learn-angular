@@ -2,15 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer'
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
    declarations: [
@@ -24,7 +27,9 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
       HttpClientModule,
       SharedModule,
       CoreModule,
-      StoreModule.forRoot({shoppingList: shoppingListReducer})
+      StoreModule.forRoot(fromApp.appReducer),
+      EffectsModule.forRoot([AuthEffects]),
+      StoreDevtoolsModule.instrument({logOnly: environment.production})
    ],
    bootstrap: [
       AppComponent
