@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AnimationsComponent } from './animations/animations.component';
+import { TestingComponent } from './testing/testing.component';
+import { UserTestComponent } from './testing/user-test/user-test.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'},

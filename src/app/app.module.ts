@@ -10,18 +10,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
-import * as fromApp from './store/app.reducer'
+import * as fromApp from './store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth/store/auth.effects';
 import { environment } from 'src/environments/environment';
 import { AnimationsComponent } from './animations/animations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestingComponent } from './testing/testing.component';
+import { UserTestComponent } from './testing/user-test/user-test.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       HeaderComponent,
-      AnimationsComponent
+      AnimationsComponent,
+      TestingComponent,
+      UserTestComponent
    ],
    imports: [
       BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -33,7 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       CoreModule,
       StoreModule.forRoot(fromApp.appReducer),
       EffectsModule.forRoot([AuthEffects]),
-      StoreDevtoolsModule.instrument({logOnly: environment.production})
+      StoreDevtoolsModule.instrument({logOnly: environment.production}),
    ],
    bootstrap: [
       AppComponent
