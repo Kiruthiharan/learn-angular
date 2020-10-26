@@ -6,7 +6,8 @@ import { DropdownDirective } from './dropdown.directive';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu'; 
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card'; 
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import {MatMenuModule} from '@angular/material/menu';
         NgbModule,
         MatInputModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        MatCardModule
     ],
     exports: [
         NgbModule,
@@ -30,7 +32,8 @@ import {MatMenuModule} from '@angular/material/menu';
         CommonModule,
         MatInputModule,
         MatButtonModule,
-        MatMenuModule
+        MatMenuModule,
+        MatCardModule
     ]
 })
 

@@ -1,0 +1,5 @@
+<div class="container-fluid mt-3">
+  <button mat-flat-button color="primary" class="ml-2" *ngIf="!isPlaying" (click)="onPlayBeep()">Alert</button>
+  <button mat-flat-button color="primary" class="ml-2" *ngIf="!isPlaying" (click)="onPlayAlert()">Warning</button>
+  <button mat-flat-button color="primary" class="ml-2" *ngIf="isPlaying" (click)="onStopAlert()">Stop</button>
+</div>

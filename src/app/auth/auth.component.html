@@ -1,14 +1,14 @@
-<div class="row justify-content-center">
-  <div class="col-xs-12 col-md-6">
-    <!-- <div class="alert alert-danger" *ngIf="error">
-      <p>{{ error }}</p>
-    </div> -->
+<mat-card style="text-align: center;">
+  <mat-card-title>
+    {{ isLoginMode ? 'Sign Up' : 'Login' }}
+  </mat-card-title>
+  <mat-card-content>
     <app-alert [message]="error" (close)="onClose()" *ngIf="error"></app-alert>
     <div *ngIf="isLoading" style="text-align: center;">
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <form style="text-align: center;" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
-
+    <form class="align-self-center" style="text-align: center;" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)"
+      *ngIf="!isLoading">
       <mat-form-field>
         <mat-label for="email">E-Mail</mat-label>
         <input matInput type="email" id="email" #email="ngModel" ngModel name="email" required email />
@@ -17,20 +17,20 @@
       <br>
       <mat-form-field class="form-group">
         <mat-label for="password">Password</mat-label>
-        <input type="password" id="password" #password="ngModel" matInput ngModel name="password" required minlength="6" />
+        <input type="password" id="password" #password="ngModel" matInput ngModel name="password" required
+          minlength="6" />
         <mat-error *ngIf="password.invalid">Please enter a password greater than 5 chars</mat-error>
       </mat-form-field>
       <br>
       <div>
-        <button mat-flat-button color="primary" type="submit" [disabled]="!authForm.valid">
+        <button class="mr-2" mat-flat-button color="primary" type="submit" [disabled]="!authForm.valid">
           {{ isLoginMode ? 'Login' : 'Sign Up' }}
         </button>
-        |
         <button mat-stroked-button color="primary" (click)="onSwitchMode()" type="button">
           Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
         </button>
       </div>
 
     </form>
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>

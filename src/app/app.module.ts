@@ -25,15 +25,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SoundAlertComponent } from './sound-alert/sound-alert.component';
 
 @NgModule({
-   declarations: [
+   declarations: [	
       AppComponent,
       HeaderComponent,
       AnimationsComponent,
       TestingComponent,
       UserTestComponent,
-      NavComponent
+      NavComponent,
+      SoundAlertComponent
    ],
    imports: [
       BrowserModule.withServerTransition({ appId: 'serverApp' }),
