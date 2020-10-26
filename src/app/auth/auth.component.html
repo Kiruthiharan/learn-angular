@@ -1,5 +1,5 @@
-<div class="row justify-content-center ">
-  <div class="col-xs-12 col-md-6 align-self-center ">
+<div class="row justify-content-center">
+  <div class="col-xs-12 col-md-6">
     <!-- <div class="alert alert-danger" *ngIf="error">
       <p>{{ error }}</p>
     </div> -->
@@ -7,44 +7,30 @@
     <div *ngIf="isLoading" style="text-align: center;">
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
-      <div class="form-group">
-        <label for="email">E-Mail</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          ngModel
-          name="email"
-          required
-          email
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          ngModel
-          name="password"
-          required
-          minlength="6"
-        />
-      </div>
+    <form style="text-align: center;" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+
+      <mat-form-field>
+        <mat-label for="email">E-Mail</mat-label>
+        <input matInput type="email" id="email" #email="ngModel" ngModel name="email" required email />
+        <mat-error *ngIf="email.invalid">Please enter a valid email</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-group">
+        <mat-label for="password">Password</mat-label>
+        <input type="password" id="password" #password="ngModel" matInput ngModel name="password" required minlength="6" />
+        <mat-error *ngIf="password.invalid">Please enter a password greater than 5 chars</mat-error>
+      </mat-form-field>
+      <br>
       <div>
-        <button
-          class="btn btn-primary"
-          type="submit"
-          [disabled]="!authForm.valid"
-        >
+        <button mat-flat-button color="primary" type="submit" [disabled]="!authForm.valid">
           {{ isLoginMode ? 'Login' : 'Sign Up' }}
         </button>
         |
-        <button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+        <button mat-stroked-button color="primary" (click)="onSwitchMode()" type="button">
           Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
         </button>
       </div>
+
     </form>
   </div>
 </div>

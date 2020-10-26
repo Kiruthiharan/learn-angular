@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'dialog' "
+    [mode]="'side' " [opened]="true">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/recipes'" *ngIf="isAuthenticated" routerLinkActive="active-list-item">Recipes</a>
+      <a mat-list-item [routerLink]="'/shopping-list'" routerLinkActive="active-list-item">Shoping List</a>
+      <a mat-list-item [routerLink]="'/animations'" routerLinkActive="active-list-item">Animations</a>
+      <a mat-list-item [routerLink]="'/auth'" routerLinkActive="active-list-item" *ngIf="!isAuthenticated">Authentication</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon *ngIf="drawer.opened == false">menu</mat-icon>
+        <mat-icon *ngIf="drawer.opened == true">keyboard_backspace</mat-icon>
+      </button>
+      <span>Learn-Angular</span>
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuthenticated">Options</button>
+      <mat-menu #menu="matMenu" class="pull-right">
+        <button mat-menu-item (click)="onSaveData()">Save Data</button>
+        <button mat-menu-item (click)="onFetchData()">Fetch Data</button>
+        <button mat-menu-item (click)="onLogOut()">Log Out</button>
+      </mat-menu>
+
+    </mat-toolbar>
+      <ng-content></ng-content> 
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -18,6 +18,13 @@ import { AnimationsComponent } from './animations/animations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestingComponent } from './testing/testing.component';
 import { UserTestComponent } from './testing/user-test/user-test.component';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
    declarations: [
@@ -25,7 +32,8 @@ import { UserTestComponent } from './testing/user-test/user-test.component';
       HeaderComponent,
       AnimationsComponent,
       TestingComponent,
-      UserTestComponent
+      UserTestComponent,
+      NavComponent
    ],
    imports: [
       BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -38,6 +46,12 @@ import { UserTestComponent } from './testing/user-test/user-test.component';
       StoreModule.forRoot(fromApp.appReducer),
       EffectsModule.forRoot([AuthEffects]),
       StoreDevtoolsModule.instrument({logOnly: environment.production}),
+      LayoutModule,
+      MatToolbarModule,
+      MatButtonModule,
+      MatSidenavModule,
+      MatIconModule,
+      MatListModule,
    ],
    bootstrap: [
       AppComponent
