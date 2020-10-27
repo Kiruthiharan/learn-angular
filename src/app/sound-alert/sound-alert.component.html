@@ -3,3 +3,9 @@
   <button mat-flat-button color="primary" class="ml-2" *ngIf="!isPlaying" (click)="onPlayAlert()">Warning</button>
   <button mat-flat-button color="primary" class="ml-2" *ngIf="isPlaying" (click)="onStopAlert()">Stop</button>
 </div>
+
+<div class="form-group">
+  <input type="file" name="fileUpload" (change)="onFileChange($event)" #myInput/>
+  <button mat-flat-button color="primary" (click)="uploadFile()"> Upload File</button>
+  <button mat-flat-button color="primary" (click)="playFile()"> Play File</button>
+</div>
