@@ -1,11 +1,41 @@
-<div class="container-fluid mt-3">
-  <button mat-flat-button color="primary" class="ml-2" *ngIf="!isPlaying" (click)="onPlayBeep()">Alert</button>
-  <button mat-flat-button color="primary" class="ml-2" *ngIf="!isPlaying" (click)="onPlayAlert()">Warning</button>
-  <button mat-flat-button color="primary" class="ml-2" *ngIf="isPlaying" (click)="onStopAlert()">Stop</button>
-</div>
-
-<div class="form-group">
-  <input type="file" name="fileUpload" (change)="onFileChange($event)" #myInput/>
-  <button mat-flat-button color="primary" (click)="uploadFile()"> Upload File</button>
-  <button mat-flat-button color="primary" (click)="playFile()"> Play File</button>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <p>Play from local assets folder</p>
+      <button mat-flat-button color="primary" class="ml-2" (click)="onPlayBeep()">Alert</button>
+      <button mat-flat-button color="primary" class="ml-2" (click)="onPlayAlert()">Warning</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>Play what user selects from pc</p>
+      <input type="file" name="fileUpload" (change)="onFileChange($event)" #myInput />
+      <!-- <button mat-flat-button color="primary" (click)="uploadFile()"> Upload File</button> -->
+      <button mat-flat-button color="primary" [disabled]="!file" (click)="playFile()"> Play File</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>Play from the internet</p>
+      <button mat-flat-button color="primary" class="ml-2" (click)="fromCloud()">From internet</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p>Options</p>
+      <button mat-flat-button color="primary" class="ml-2" [disabled]="!isPlaying" (click)="onStopAlert()">Stop</button>
+      <button mat-flat-button color="primary" class="ml-2" (click)="onLoopToggle()">{{this.audio.loop ? 'Off loop': 'On loop'}}</button>
+      <button mat-flat-button color="primary" class="ml-2" (click)="onMuteToggle()">{{this.audio.muted ? 'Unmute': 'Mute'}}</button>
+    </div>
+    <div class="col-12">
+      <br>
+      Volume: {{audio.volume | number }}
+      <button mat-mini-fab color="primary" class="ml-2" (click)="increaseVol()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary" class="ml-2" (click)="decreaseVol()">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

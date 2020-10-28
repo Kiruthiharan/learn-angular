@@ -21,7 +21,7 @@ import { Component, OnInit } from '@angular/core';
     trigger('wildState', [
       state('normal', style({
         backgroundColor: 'red',
-        transform: 'trnaslateX(0) scale(1)'
+        transform: 'translateX(0) scale(1)'
       })),
       state('highlighted', style({
         backgroundColor: 'blue',
